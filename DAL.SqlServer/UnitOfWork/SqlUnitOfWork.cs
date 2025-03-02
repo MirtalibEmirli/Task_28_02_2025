@@ -12,11 +12,16 @@ public class SqlUnitOfWork(string connection, TDBContext context) : IUnitOfWork
     private readonly string _connectionString= connection;
     private readonly TDBContext _context = context;
 
-    public SqlUserRepository SqlUserRepository;
-    public SqlBookRepository SqlBookRepository;
-    public IUserRepository UserRepository => throw new NotImplementedException();
+    public IUserRepository UserRepository => SqlUserRepository ?? new SqlUserRepository(connection, _context);
+    public SqlUserRepository? SqlUserRepository;
 
-    public IBookRepository BookRepository => throw new NotImplementedException();
+
+    public SqlImageRepository SqlImageRepository;
+    public IBookRepository BookRepository => SqlBookRepository ??new SqlBookRepository(connection, _context);
+
+    public IImageRepository ImageRepository => SqlImageRepository ??new SqlImageRepository(_connectionString);
+
+    public SqlBookRepository? SqlBookRepository;
 
     public async Task<int> SaveChangesAsync()
     {

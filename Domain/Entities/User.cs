@@ -1,12 +1,6 @@
 ﻿using Domain.BaseEntities;
 using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
@@ -25,10 +19,14 @@ namespace Domain.Entities
         public string? TableNumber { get; set; }
         public DateTime Birthdate { get; set; }
 
-        public DateTime DateOfEmployment { get; set; }
-        public DateTime DateOfDismissal { get; set; }
+        public DateTime? DateOfEmployment { get; set; }
+        public DateTime? DateOfDismissal { get; set; }
 
         public string? Note { get; set; }
+
+
+        public int? ImageId { get; set; } // Foreign Key (Nullable)
+        public Image? Image { get; set; } // Navigation Property
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Gender Gender { get; set; }  // Enum
