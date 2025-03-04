@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Domain.Entities;
+using Repository.Common;
 using Repository.Repositories;
 
 namespace DAL.SqlServer.Infrastructure;
@@ -30,6 +31,7 @@ public class SqlImageRepository(string conn) : BaseSqlRepository(conn), IImageRe
     public Task<Image> GetImageById(int id)
     {
         throw new NotImplementedException();
+
     }
 
     public Task UpdateImage(Image image)

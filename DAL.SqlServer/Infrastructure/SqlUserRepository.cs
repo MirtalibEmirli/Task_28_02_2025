@@ -51,7 +51,9 @@ public class SqlUserRepository(string connection, TDBContext
         Gender,
         UserType,
         MobilePhone,
-        CardNumber
+        CardNumber,
+        ImageId,
+PasswordHash
         )
         VALUES(
         @Name,
@@ -62,8 +64,9 @@ public class SqlUserRepository(string connection, TDBContext
         @Gender,
         @UserType,
         @MobilePhone,
-        @CardNumber
-        
+        @CardNumber,
+        @ImageId,
+        @PasswordHash
         );
         SELECT SCOPE_IDENTITY();";
         using var conn = OpenConnection();
