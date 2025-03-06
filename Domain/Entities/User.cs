@@ -26,6 +26,7 @@ namespace Domain.Entities
 
 
         public int? ImageId { get; set; } // Foreign Key (Nullable)
+        public string? ImageUrl{ get; set; } // Foreign Key (Nullable)
         public Image? Image { get; set; } // Navigation Property
 
         [JsonConverter(typeof(JsonStringEnumConverter))]

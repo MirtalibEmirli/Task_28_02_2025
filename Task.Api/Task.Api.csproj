@@ -15,4 +15,10 @@
     <ProjectReference Include="..\DAL.SqlServer\DAL.SqlServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\Images\5f0ab0ef-a707-4bfc-bef4-9df17984bf4d.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

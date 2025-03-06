@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Users.DTOs;
 using AutoMapper;
+using Common.Exceptions;
 using Common.GlobalResponses.Generics;
 using Common.Security;
 using Domain.Entities;
@@ -102,6 +103,12 @@ IRequestHandler<RegisterCommand, ResponseModel<RegisterUserDto>>
             //userimizi yaradib map edek ve elave edek database e
             //Sonuncu  hisse ise En yuxarida yaradilan imageId den isdifade eederek  insert edmek meqamidir.
             //userimizi map edirik ve database e elave edib , responseModeli geri qaytaririq
+
+            var checkUser =await _unitOfWork.UserRepository.GetByEmailAsync(request.Email);
+            if (checkUser != null) throw new BadRequestException($"User is already exist with provided email => {request.Email}");
+            //username i de nezere al
+
+
 
             var user = _mapper.Map<User>(request);
             user.PasswordHash = PasswordHasher.ComputeStringToSha256Hash(request.PasswordHash);

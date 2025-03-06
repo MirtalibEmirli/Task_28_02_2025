@@ -10,6 +10,6 @@ public interface IUserRepository
     Task Login(User user);
     Task<User> GetById(int id);
     Task<User> GetByEmailAsync(string name);
-    Task<IQueryable<User>> GetAll();                    
+    Task<IEnumerable<User>> GetAll();                    
 
 }
