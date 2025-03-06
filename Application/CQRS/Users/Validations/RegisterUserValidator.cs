@@ -19,6 +19,7 @@ namespace Application.CQRS.Users.Validations
 
         public RegisterUserValidator()
         {
+       
             RuleFor(u => u.Email).EmailAddress();
             RuleFor(u => u.Name).NotEmpty().MinimumLength(3).NotNull();
             RuleFor(u => u.Surname).NotEmpty().MinimumLength(3).NotNull();

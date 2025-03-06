@@ -90,6 +90,9 @@ IRequestHandler<RegisterCommand, ResponseModel<RegisterUserDto>>
             using (var stream = new FileStream(filePath, FileMode.Create))
                 await iForm.CopyToAsync(stream);
 
+
+
+
             //Indi biz Databasemizdeki Images  tablesine insert ederek bu sekilin melumatlarini =>
             //beli duz esiddiz sekili yox , melumatlarini database elave edirik 
             var img = new Image

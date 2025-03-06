@@ -9,4 +9,6 @@ public interface IUnitOfWork
     IBookRepository BookRepository { get; }
     IImageRepository ImageRepository { get; }
     Task<int> SaveChangesAsync();
+
+
 }
