@@ -117,6 +117,7 @@ IRequestHandler<RegisterCommand, ResponseModel<RegisterUserDto>>
             user.PasswordHash = PasswordHasher.ComputeStringToSha256Hash(request.PasswordHash);
             user.ImageId = imageId;
             user.CreatedBy = 1;
+            user.ImageUrl = filePath;
             await _unitOfWork.UserRepository.RegisterUser(user);
             var result = _mapper.Map<RegisterUserDto>(user);
             return  new ResponseModel<RegisterUserDto> { Data = result ,IsSuccess=true};

@@ -25,9 +25,9 @@ namespace Domain.Entities
         public string? Note { get; set; }
 
 
-        public int? ImageId { get; set; } // Foreign Key (Nullable)
-        public string? ImageUrl{ get; set; } // Foreign Key (Nullable)
-        public Image? Image { get; set; } // Navigation Property
+        public int? ImageId { get; set; }  
+        public string? ImageUrl{ get; set; }  
+        public Image? Image { get; set; }  
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Gender Gender { get; set; }  // Enum

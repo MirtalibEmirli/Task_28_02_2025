@@ -1,7 +1,4 @@
-﻿using Domain.Enums;
-using Microsoft.AspNetCore.Http;
-using System.Text.Json.Serialization;
-using static System.Net.Mime.MediaTypeNames;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace Application.CQRS.Users.DTOs;
 

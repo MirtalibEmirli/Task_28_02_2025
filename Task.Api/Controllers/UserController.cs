@@ -23,12 +23,19 @@ public class UserController(ISender sender) : ControllerBase
     }
 
 
+
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(int id)
     {
         var request = new GetUserByIdCommand() { UserId=id};
         return Ok( await _sender.Send(request));    
     }
+    [HttpGet]
+    public async Task<IActionResult> GetAllUsers([FromQuery] GetAllUsers.GetAllCommand request ) {
+    
+    return Ok( await _sender.Send(request));    
+    } 
     
  
 }
