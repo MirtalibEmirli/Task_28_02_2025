@@ -1,6 +1,7 @@
 using DAL.SqlServer;
 using Application;
 using Task.Api.Middlewares;
+using Task.Api.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -12,6 +13,7 @@ var conn = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddSqlServerServices(conn);
 builder.Services.AddTransient<ExceptionHandlerMiddleware>();
 builder.Services.AddApplicationServices();
+builder.Services.AddAuthenticationService(builder.Configuration);
 
 var app = builder.Build();
 
